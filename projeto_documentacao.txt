@@ -1,0 +1,2094 @@
+====================================================
+ARQUIVO: ./bin/generated-sources/annotations/com/mvalentin/agendadortarefas/business/mapper/TarefasMapperImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-02-11T12:13:49-0300",
+    comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.45.0.v20260128-0750, environment: Java 21.0.9 (Eclipse Adoptium)"
+)
+@Component
+public class TarefasMapperImpl implements TarefasMapper {
+
+    @Override
+    public TarefasEntity paraTarefaEntity(TarefasDto tarefasDto) {
+        if ( tarefasDto == null ) {
+            return null;
+        }
+
+        TarefasEntity.TarefasEntityBuilder tarefasEntity = TarefasEntity.builder();
+
+        tarefasEntity.id( tarefasDto.getId() );
+        tarefasEntity.dataEvento( tarefasDto.getDataEvento() );
+        tarefasEntity.dataCriacao( tarefasDto.getDataCriacao() );
+        tarefasEntity.dataAlteracao( tarefasDto.getDataAlteracao() );
+        tarefasEntity.descricao( tarefasDto.getDescricao() );
+        tarefasEntity.emailUsuario( tarefasDto.getEmailUsuario() );
+        tarefasEntity.nomeTarefa( tarefasDto.getNomeTarefa() );
+        tarefasEntity.statusNotificacaoEnum( tarefasDto.getStatusNotificacaoEnum() );
+
+        return tarefasEntity.build();
+    }
+
+    @Override
+    public TarefasDto paraTarefaDto(TarefasEntity tarefasEntity) {
+        if ( tarefasEntity == null ) {
+            return null;
+        }
+
+        TarefasDto.TarefasDtoBuilder tarefasDto = TarefasDto.builder();
+
+        tarefasDto.dataAlteracao( tarefasEntity.getDataAlteracao() );
+        tarefasDto.dataCriacao( tarefasEntity.getDataCriacao() );
+        tarefasDto.dataEvento( tarefasEntity.getDataEvento() );
+        tarefasDto.descricao( tarefasEntity.getDescricao() );
+        tarefasDto.emailUsuario( tarefasEntity.getEmailUsuario() );
+        tarefasDto.id( tarefasEntity.getId() );
+        tarefasDto.nomeTarefa( tarefasEntity.getNomeTarefa() );
+        tarefasDto.statusNotificacaoEnum( tarefasEntity.getStatusNotificacaoEnum() );
+
+        return tarefasDto.build();
+    }
+
+    @Override
+    public List<TarefasEntity> paraListaTarefaEntity(List<TarefasDto> tarefasDtoList) {
+        if ( tarefasDtoList == null ) {
+            return null;
+        }
+
+        List<TarefasEntity> list = new ArrayList<TarefasEntity>( tarefasDtoList.size() );
+        for ( TarefasDto tarefasDto : tarefasDtoList ) {
+            list.add( paraTarefaEntity( tarefasDto ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<TarefasDto> paraListaTarefasDto(List<TarefasEntity> tarefasEntityList) {
+        if ( tarefasEntityList == null ) {
+            return null;
+        }
+
+        List<TarefasDto> list = new ArrayList<TarefasDto>( tarefasEntityList.size() );
+        for ( TarefasEntity tarefasEntity : tarefasEntityList ) {
+            list.add( paraTarefaDto( tarefasEntity ) );
+        }
+
+        return list;
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./bin/generated-sources/annotations/com/mvalentin/agendadortarefas/business/mapper/TarefasUpDateMapperImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-02-11T12:13:49-0300",
+    comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.45.0.v20260128-0750, environment: Java 21.0.9 (Eclipse Adoptium)"
+)
+@Component
+public class TarefasUpDateMapperImpl implements TarefasUpDateMapper {
+
+    @Override
+    public void updateTarefas(TarefasDto tarefasDto, TarefasEntity tarefasEntity) {
+        if ( tarefasDto == null ) {
+            return;
+        }
+
+        if ( tarefasDto.getDataAlteracao() != null ) {
+            tarefasEntity.setDataAlteracao( tarefasDto.getDataAlteracao() );
+        }
+        if ( tarefasDto.getDataCriacao() != null ) {
+            tarefasEntity.setDataCriacao( tarefasDto.getDataCriacao() );
+        }
+        if ( tarefasDto.getDataEvento() != null ) {
+            tarefasEntity.setDataEvento( tarefasDto.getDataEvento() );
+        }
+        if ( tarefasDto.getDescricao() != null ) {
+            tarefasEntity.setDescricao( tarefasDto.getDescricao() );
+        }
+        if ( tarefasDto.getEmailUsuario() != null ) {
+            tarefasEntity.setEmailUsuario( tarefasDto.getEmailUsuario() );
+        }
+        if ( tarefasDto.getId() != null ) {
+            tarefasEntity.setId( tarefasDto.getId() );
+        }
+        if ( tarefasDto.getNomeTarefa() != null ) {
+            tarefasEntity.setNomeTarefa( tarefasDto.getNomeTarefa() );
+        }
+        if ( tarefasDto.getStatusNotificacaoEnum() != null ) {
+            tarefasEntity.setStatusNotificacaoEnum( tarefasDto.getStatusNotificacaoEnum() );
+        }
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./bin/main/application.properties
+====================================================
+spring.application.name=agendador-tarefas
+
+## dados de conex�o BD (MongoDB)
+spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
+usuario.url=localhost:8080
+
+## porta da aplica��o agendador
+server.port=8081 
+
+
+====================================================
+ARQUIVO: ./build/generated/sources/annotationProcessor/java/main/com/mvalentin/agendadortarefas/business/mapper/TarefasMapperImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-02-10T14:19:03-0300",
+    comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.14.4.jar, environment: Java 17.0.12 (Azul Systems, Inc.)"
+)
+@Component
+public class TarefasMapperImpl implements TarefasMapper {
+
+    @Override
+    public TarefasEntity paraTarefaEntity(TarefasDto tarefasDto) {
+        if ( tarefasDto == null ) {
+            return null;
+        }
+
+        TarefasEntity.TarefasEntityBuilder tarefasEntity = TarefasEntity.builder();
+
+        tarefasEntity.id( tarefasDto.getId() );
+        tarefasEntity.dataEvento( tarefasDto.getDataEvento() );
+        tarefasEntity.dataCriacao( tarefasDto.getDataCriacao() );
+        tarefasEntity.nomeTarefa( tarefasDto.getNomeTarefa() );
+        tarefasEntity.descricao( tarefasDto.getDescricao() );
+        tarefasEntity.emailUsuario( tarefasDto.getEmailUsuario() );
+        tarefasEntity.dataAlteracao( tarefasDto.getDataAlteracao() );
+        tarefasEntity.statusNotificacaoEnum( tarefasDto.getStatusNotificacaoEnum() );
+
+        return tarefasEntity.build();
+    }
+
+    @Override
+    public TarefasDto paraTarefaDto(TarefasEntity tarefasEntity) {
+        if ( tarefasEntity == null ) {
+            return null;
+        }
+
+        TarefasDto.TarefasDtoBuilder tarefasDto = TarefasDto.builder();
+
+        tarefasDto.id( tarefasEntity.getId() );
+        tarefasDto.nomeTarefa( tarefasEntity.getNomeTarefa() );
+        tarefasDto.descricao( tarefasEntity.getDescricao() );
+        tarefasDto.dataCriacao( tarefasEntity.getDataCriacao() );
+        tarefasDto.dataEvento( tarefasEntity.getDataEvento() );
+        tarefasDto.emailUsuario( tarefasEntity.getEmailUsuario() );
+        tarefasDto.dataAlteracao( tarefasEntity.getDataAlteracao() );
+        tarefasDto.statusNotificacaoEnum( tarefasEntity.getStatusNotificacaoEnum() );
+
+        return tarefasDto.build();
+    }
+
+    @Override
+    public List<TarefasEntity> paraListaTarefaEntity(List<TarefasDto> tarefasDtoList) {
+        if ( tarefasDtoList == null ) {
+            return null;
+        }
+
+        List<TarefasEntity> list = new ArrayList<TarefasEntity>( tarefasDtoList.size() );
+        for ( TarefasDto tarefasDto : tarefasDtoList ) {
+            list.add( paraTarefaEntity( tarefasDto ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<TarefasDto> paraListaTarefasDto(List<TarefasEntity> tarefasEntityList) {
+        if ( tarefasEntityList == null ) {
+            return null;
+        }
+
+        List<TarefasDto> list = new ArrayList<TarefasDto>( tarefasEntityList.size() );
+        for ( TarefasEntity tarefasEntity : tarefasEntityList ) {
+            list.add( paraTarefaDto( tarefasEntity ) );
+        }
+
+        return list;
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./build/generated/sources/annotationProcessor/java/main/com/mvalentin/agendadortarefas/business/mapper/TarefasUpDateMapperImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-02-10T15:52:24-0300",
+    comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.14.4.jar, environment: Java 17.0.12 (Azul Systems, Inc.)"
+)
+@Component
+public class TarefasUpDateMapperImpl implements TarefasUpDateMapper {
+
+    @Override
+    public void updateTarefas(TarefasDto tarefasDto, TarefasEntity tarefasEntity) {
+        if ( tarefasDto == null ) {
+            return;
+        }
+
+        if ( tarefasDto.getId() != null ) {
+            tarefasEntity.setId( tarefasDto.getId() );
+        }
+        if ( tarefasDto.getNomeTarefa() != null ) {
+            tarefasEntity.setNomeTarefa( tarefasDto.getNomeTarefa() );
+        }
+        if ( tarefasDto.getDescricao() != null ) {
+            tarefasEntity.setDescricao( tarefasDto.getDescricao() );
+        }
+        if ( tarefasDto.getDataCriacao() != null ) {
+            tarefasEntity.setDataCriacao( tarefasDto.getDataCriacao() );
+        }
+        if ( tarefasDto.getDataEvento() != null ) {
+            tarefasEntity.setDataEvento( tarefasDto.getDataEvento() );
+        }
+        if ( tarefasDto.getEmailUsuario() != null ) {
+            tarefasEntity.setEmailUsuario( tarefasDto.getEmailUsuario() );
+        }
+        if ( tarefasDto.getDataAlteracao() != null ) {
+            tarefasEntity.setDataAlteracao( tarefasDto.getDataAlteracao() );
+        }
+        if ( tarefasDto.getStatusNotificacaoEnum() != null ) {
+            tarefasEntity.setStatusNotificacaoEnum( tarefasDto.getStatusNotificacaoEnum() );
+        }
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./build/resources/main/application.properties
+====================================================
+spring.application.name=agendador-tarefas
+
+## dados de conex�o BD (MongoDB)
+spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
+usuario.url=localhost:8080
+
+## porta da aplica��o agendador
+server.port=8081 
+
+
+====================================================
+ARQUIVO: ./build.gradle
+====================================================
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.mvalentin'
+version = '0.0.1-SNAPSHOT'
+description = 'Microserviço para gerenciamento de agenda e tarefas do usuário, integrada ao banco de dados db_agendador e preparada para consumo via BFF.'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "2025.0.1")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0' // para utilizar o lombok
+
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.3"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/AgendadorTarefasApplication.java
+====================================================
+package com.mvalentin.agendadortarefas;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+@SpringBootApplication
+@EnableFeignClients // Habilitar o FeignClient
+public class AgendadorTarefasApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AgendadorTarefasApplication.class, args);
+	}
+
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/dto/TarefasDto.java
+====================================================
+package com.mvalentin.agendadortarefas.business.dto;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import lombok.*;
+
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class TarefasDto {
+
+    private String id;
+    private String nomeTarefa;
+    private String descricao;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime dataCriacao;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime dataEvento;
+    private String emailUsuario;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime dataAlteracao;
+    private StatusNotificacaoEnum statusNotificacaoEnum;
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/dto/UsuarioDto.java
+====================================================
+package com.mvalentin.agendadortarefas.business.dto;
+
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class UsuarioDto {
+
+    private String email;
+    private String senha;
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/mapper/TarefasMapper.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+public interface TarefasMapper {
+    // O MapStruct converte automaticamente ObjectId para String e vice-versa
+    @Mapping(source = "id", target = "id")
+    @Mapping(source = "dataEvento", target = "dataEvento")
+    @Mapping(source = "dataCriacao", target = "dataCriacao")
+
+    TarefasEntity paraTarefaEntity(TarefasDto tarefasDto);
+
+    TarefasDto paraTarefaDto(TarefasEntity tarefasEntity);
+
+    List<TarefasEntity> paraListaTarefaEntity(List<TarefasDto> tarefasDtoList);
+
+    List<TarefasDto> paraListaTarefasDto(List<TarefasEntity> tarefasEntityList);
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/mapper/TarefasUpDateMapper.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+
+@Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+public interface TarefasUpDateMapper {
+
+    void updateTarefas(TarefasDto tarefasDto, @MappingTarget TarefasEntity tarefasEntity);
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/service/TarefasService.java
+====================================================
+package com.mvalentin.agendadortarefas.business.service;
+
+import com.mvalentin.agendadortarefas.business.mapper.TarefasMapper;
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.business.mapper.TarefasUpDateMapper;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import com.mvalentin.agendadortarefas.infrastructure.exceptions.ResourceNotFoundException;
+import com.mvalentin.agendadortarefas.infrastructure.repository.TarefasRepository;
+import com.mvalentin.agendadortarefas.infrastructure.security.JwtUtil;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class TarefasService {
+
+    private final  TarefasRepository tarefasRepository;
+    private final TarefasMapper tarefasMapper;
+    private final JwtUtil jwtUtil;
+    private final TarefasUpDateMapper tarefasUpDateMapper;
+
+    public TarefasDto salvarTarefa (String token,TarefasDto tarefasDto){
+        // 1. Extração do e-mail
+        String email = jwtUtil.extrairEmailToken(token.substring(7));
+
+        // 2. Preenchimento de campos automáticos (Regra de Negócio)
+        tarefasDto.setDataCriacao(LocalDateTime.now());
+        tarefasDto.setStatusNotificacaoEnum(StatusNotificacaoEnum.PENDENTE);
+        tarefasDto.setEmailUsuario(email); // precisamos setar o e-mail
+
+        // 3. Conversão DTO -> Entity
+        TarefasEntity tarefa = tarefasMapper.paraTarefaEntity(tarefasDto);
+
+        // 4. Persistência no MongoDB
+        tarefa = tarefasRepository.save(tarefa);
+
+        // 5. Retorno convertido para DTO
+        return tarefasMapper.paraTarefaDto(tarefa);
+    }
+
+    public List<TarefasDto> buscaTarefasAgendadorPorPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal){
+        return tarefasMapper.paraListaTarefasDto(
+                tarefasRepository.findByDataEventoBetween(dataInicial,dataFinal));
+    }
+
+    public List<TarefasDto> buscaTarefasByEmail (String token){
+        String email = jwtUtil.extrairEmailToken(token.substring(7));
+
+        return tarefasMapper.paraListaTarefasDto(
+                tarefasRepository.findByEmailUsuario(email)
+        );
+    }
+
+    public void deletaTarefaById(String id){
+        tarefasRepository.deleteById(id);
+    }
+
+    public TarefasDto alteracaoStatus(StatusNotificacaoEnum status,String id) {
+        try {
+            TarefasEntity tarefa = tarefasRepository.findById(id)
+                    .orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada" + id));
+            tarefa.setStatusNotificacaoEnum(status);
+            return tarefasMapper.paraTarefaDto(tarefasRepository.save(tarefa));
+
+        } catch (ResourceNotFoundException e) {
+            throw new ResourceNotFoundException("Erro ao alterar status da tarefa", e.getCause());
+        }
+
+    }
+    public TarefasDto updateTarefas(TarefasDto tarefasDto,String id){
+        try {
+            TarefasEntity tarefas = tarefasRepository.findById(id).
+                    orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada" +id));
+            tarefasUpDateMapper.updateTarefas(tarefasDto,tarefas);
+            return tarefasMapper.paraTarefaDto(tarefasRepository.save(tarefas));
+        }catch (ResourceNotFoundException e){
+            throw new ResourceNotFoundException("Erro ao alterar status da tarefa" + e.getCause());
+        }
+
+    }
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/controller/TarefasController.java
+====================================================
+package com.mvalentin.agendadortarefas.controller;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.business.service.TarefasService;
+import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import com.mvalentin.agendadortarefas.infrastructure.exceptions.ResourceNotFoundException;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@RestController
+@RequestMapping("/tarefas")
+@RequiredArgsConstructor
+public class TarefasController {
+
+    private final TarefasService tarefasService;
+
+    @PostMapping
+    public ResponseEntity<TarefasDto> salvarTarefa(@RequestBody TarefasDto tarefasDto,
+                                                   @RequestHeader("Authorization") String token) {
+        // 1. Chama o serviço UMA ÚNICA VEZ e guarda o resultado (o DTO retornado)
+        TarefasDto tarefaSalva = tarefasService.salvarTarefa(token, tarefasDto);
+
+        // 2. Retorna a variável que já contém os dados salvos
+        return ResponseEntity.ok(tarefaSalva);
+    }
+    @GetMapping("/eventos")
+    public ResponseEntity<List<TarefasDto>> buscaTarefasPorPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
+                                                                  @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal){
+        return ResponseEntity.ok(tarefasService.buscaTarefasAgendadorPorPeriodo(dataInicial,dataFinal));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TarefasDto>> buscaTarefasPorEmail(@RequestHeader ("Authorization") String token){
+        return ResponseEntity.ok(tarefasService.buscaTarefasByEmail(token));
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deletaTarefaPorId(@RequestParam("id") String id){
+        try {
+            tarefasService.deletaTarefaById(id);
+        }catch (ResourceNotFoundException e ){
+            throw new ResourceNotFoundException("Erro ao deletar tarefaa, id inexistnte" + id +
+                    e.getCause());
+        }
+
+        return ResponseEntity.ok().build();
+    }
+    @PatchMapping
+    public ResponseEntity<TarefasDto> alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
+                                                              @RequestParam ("id") String id,
+                                                              @RequestHeader ("Authorization") String token){
+        return ResponseEntity.ok(tarefasService.alteracaoStatus(status,id));
+    }
+   // ou posso fazer assim, porém em ambos a situiações é  necessário incluir no insomnia o token
+//    @PatchMapping
+//    public ResponseEntity<TarefasDto> alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
+//                                                              @RequestParam ("id") String id){
+//        return ResponseEntity.ok(tarefasService.alteracaoStatus(status,id));
+//    }
+
+    @PutMapping
+    public ResponseEntity<TarefasDto> updateTarefas(@RequestBody TarefasDto tarefasDto,
+                                                    @RequestParam("id") String id){
+        return ResponseEntity.ok(tarefasService.updateTarefas(tarefasDto,id));
+    }
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/client/UsuarioClient.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.client;
+
+import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@FeignClient(name = "usuario", url = "${usuario.url}")
+public interface UsuarioClient {
+    @GetMapping("/usuario")
+    UsuarioDto buscaUsuario(@RequestParam("email")String email,
+                            @RequestHeader("Authorization") String token);
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/entity/TarefasEntity.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.entity;
+
+import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Document("Tarefa") // como vamos utilizar o mongoDB então ao innvés de entity utilizamos o Document
+public class TarefasEntity {
+
+    @Id
+    private String id;
+    private String nomeTarefa;
+    private String descricao;
+    private LocalDateTime dataCriacao;
+    private LocalDateTime dataEvento;
+    private String emailUsuario;
+    private LocalDateTime dataAlteracao;
+    private StatusNotificacaoEnum statusNotificacaoEnum; // aqui vamos utilizar o enum para os status de (PENDENTE, NOTIFICADO, CANCELADO
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/enums/StatusNotificacaoEnum.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.enums;
+
+public enum StatusNotificacaoEnum {
+    PENDENTE,
+    NOTIFICADO,
+    CANCELADO
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/exceptions/GlobalExceptionHandler.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+
+import java.time.LocalDateTime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<String> handleInvalidEnum(HttpMessageNotReadableException ex) {
+        return ResponseEntity.badRequest().body("Status inválido. Escolha entre: PENDENTE, NOTIFICADO ou CANCELADO.");
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleNotFound(ResourceNotFoundException ex) {
+        // Trata o erro de "Tarefa não encontrada"
+        return ResponseEntity.status(404).body(ex.getMessage());
+    }
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Object> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.BAD_REQUEST.value());
+        body.put("error", "Parâmetro Inválido");
+        body.put("message", String.format("O valor '%s' não é válido para o campo '%s'. Escolha entre: PENDENTE, NOTIFICADO ou CANCELADO.",
+                ex.getValue(), ex.getName()));
+
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/exceptions/ResourceNotFoundException.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.exceptions;
+
+public class ResourceNotFoundException  extends RuntimeException{
+
+    public ResourceNotFoundException (String mensagem){
+        super(mensagem);
+    }
+
+    public ResourceNotFoundException (String message, Throwable throwable){
+        super(message);
+    }
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/repository/TarefasRepository.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.repository;
+
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Repository
+public interface TarefasRepository extends MongoRepository<TarefasEntity,String> {
+
+    List<TarefasEntity> findByDataEventoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal);
+
+    List<TarefasEntity> findByEmailUsuario(String email);
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/JwtRequestFilter.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.security;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import java.io.IOException;
+
+// Define a classe JwtRequestFilter, que estende OncePerRequestFilter
+public class JwtRequestFilter extends OncePerRequestFilter {
+
+    // Define propriedades para armazenar instâncias de JwtUtil e UserDetailsService
+    private final JwtUtil jwtUtil;
+    private final UserDetailsServiceImpl userDetailsService;
+
+    // Construtor que inicializa as propriedades com instâncias fornecidas
+    public JwtRequestFilter(JwtUtil jwtUtil, UserDetailsServiceImpl userDetailsService) {
+        this.jwtUtil = jwtUtil;
+        this.userDetailsService = userDetailsService;
+    }
+
+    // Método chamado uma vez por requisição para processar o filtro
+    @Override
+    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+            throws ServletException, IOException {
+
+        // Obtém o valor do header "Authorization" da requisição
+        final String authorizationHeader = request.getHeader("Authorization");
+
+        // Verifica se o cabeçalho existe e começa com "Bearer "
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            // Extrai o token JWT do cabeçalho
+            final String token = authorizationHeader.substring(7);
+            // Extrai o nome de usuário do token JWT
+            final String username = jwtUtil.extrairEmailToken(token);
+
+            // Se o nome de usuário não for nulo e o usuário não estiver autenticado ainda
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                // Carrega os detalhes do usuário a partir do nome de usuário
+                UserDetails userDetails = userDetailsService.carregaDadosUsuario(username,authorizationHeader);
+                // Valida o token JWT
+                if (jwtUtil.validateToken(token, username)) {
+                    // Cria um objeto de autenticação com as informações do usuário
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                            userDetails, null, userDetails.getAuthorities());
+                    // Define a autenticação no contexto de segurança
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
+            }
+        }
+
+        // Continua a cadeia de filtros, permitindo que a requisição prossiga
+        chain.doFilter(request, response);
+    }
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/JwtUtil.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.security;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.stereotype.Service;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+
+@Service
+public class JwtUtil {
+
+    // Chave secreta usada para assinar e verificar tokens JWT
+    private final String secretKey = "sua-chave-secreta-super-segura-que-deve-ser-bem-longa";
+
+
+    // Extrai as claims do token JWT (informações adicionais do token)
+    public Claims extractClaims(String token) {
+        return Jwts.parser()
+                .setSigningKey(Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8))) // Define a chave secreta para validar a assinatura do token
+                .build()
+                .parseClaimsJws(token) // Analisa o token JWT e obtém as claims
+                .getBody(); // Retorna o corpo das claims
+    }
+
+    // Extrai o email do usuário do token JWT
+    public String extrairEmailToken(String token) {
+        // Obtém o assunto (nome de usuário) das claims do token
+        return extractClaims(token).getSubject();
+    }
+
+    // Verifica se o token JWT está expirado
+    public boolean isTokenExpired(String token) {
+        // Compara a data de expiração do token com a data atual
+        return extractClaims(token).getExpiration().before(new Date());
+    }
+
+    // Valida o token JWT verificando o nome de usuário e se o token não está expirado
+    public boolean validateToken(String token, String username) {
+        // Extrai o nome de usuário do token
+        final String extractedUsername = extrairEmailToken(token);
+        // Verifica se o nome de usuário do token corresponde ao fornecido e se o token não está expirado
+        return (extractedUsername.equals(username) && !isTokenExpired(token));
+    }
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/SecurityConfig.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    public static final String SECURITY_SCHEME = "bearerAuth";
+
+    // Instâncias de JwtUtil e UserDetailsService injetadas pelo Spring
+    private final JwtUtil jwtUtil;
+    private final UserDetailsServiceImpl userDetailsService;
+
+    // Construtor para injeção de dependências de JwtUtil e UserDetailsService
+    @Autowired
+    public SecurityConfig(JwtUtil jwtUtil, UserDetailsServiceImpl userDetailsService) {
+        this.jwtUtil = jwtUtil;
+        this.userDetailsService = userDetailsService;
+    }
+
+    // Configuração do filtro de segurança
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        JwtRequestFilter jwtRequestFilter = new JwtRequestFilter(jwtUtil, userDetailsService);
+
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(authorize -> authorize
+                        .anyRequest().authenticated()// todos os endpoints precisam ser ahthenticados
+                )
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
+                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/UserDetailsServiceImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.security;
+
+import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
+import com.mvalentin.agendadortarefas.infrastructure.client.UsuarioClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserDetailsServiceImpl  {
+
+    @Autowired
+    private UsuarioClient usuarioClient;
+
+    public UserDetails carregaDadosUsuario(String email, String token){
+        UsuarioDto usuarioDto = usuarioClient.buscaUsuario(email,token);
+        return User
+                .withUsername(usuarioDto.getEmail()) // Define o nome de usuário como o e-mail
+                .password(usuarioDto.getSenha()) // Define a senha do usuário
+                .build(); // Constrói o objeto UserDetails
+    }
+}
+
+
+====================================================
+ARQUIVO: ./src/main/resources/application.properties
+====================================================
+spring.application.name=agendador-tarefas
+
+## dados de conex�o BD (MongoDB)
+spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
+usuario.url=localhost:8080
+
+## porta da aplica��o agendador
+server.port=8081 
+
+
+====================================================
+ARQUIVO: ./src/test/java/com/mvalentin/agendadortarefas/AgendadorTarefasApplicationTests.java
+====================================================
+package com.mvalentin.agendadortarefas;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AgendadorTarefasApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
+
+
+
+====================================================
+ARQUIVO: ./bin/generated-sources/annotations/com/mvalentin/agendadortarefas/business/mapper/TarefasMapperImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-02-11T12:13:49-0300",
+    comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.45.0.v20260128-0750, environment: Java 21.0.9 (Eclipse Adoptium)"
+)
+@Component
+public class TarefasMapperImpl implements TarefasMapper {
+
+    @Override
+    public TarefasEntity paraTarefaEntity(TarefasDto tarefasDto) {
+        if ( tarefasDto == null ) {
+            return null;
+        }
+
+        TarefasEntity.TarefasEntityBuilder tarefasEntity = TarefasEntity.builder();
+
+        tarefasEntity.id( tarefasDto.getId() );
+        tarefasEntity.dataEvento( tarefasDto.getDataEvento() );
+        tarefasEntity.dataCriacao( tarefasDto.getDataCriacao() );
+        tarefasEntity.dataAlteracao( tarefasDto.getDataAlteracao() );
+        tarefasEntity.descricao( tarefasDto.getDescricao() );
+        tarefasEntity.emailUsuario( tarefasDto.getEmailUsuario() );
+        tarefasEntity.nomeTarefa( tarefasDto.getNomeTarefa() );
+        tarefasEntity.statusNotificacaoEnum( tarefasDto.getStatusNotificacaoEnum() );
+
+        return tarefasEntity.build();
+    }
+
+    @Override
+    public TarefasDto paraTarefaDto(TarefasEntity tarefasEntity) {
+        if ( tarefasEntity == null ) {
+            return null;
+        }
+
+        TarefasDto.TarefasDtoBuilder tarefasDto = TarefasDto.builder();
+
+        tarefasDto.dataAlteracao( tarefasEntity.getDataAlteracao() );
+        tarefasDto.dataCriacao( tarefasEntity.getDataCriacao() );
+        tarefasDto.dataEvento( tarefasEntity.getDataEvento() );
+        tarefasDto.descricao( tarefasEntity.getDescricao() );
+        tarefasDto.emailUsuario( tarefasEntity.getEmailUsuario() );
+        tarefasDto.id( tarefasEntity.getId() );
+        tarefasDto.nomeTarefa( tarefasEntity.getNomeTarefa() );
+        tarefasDto.statusNotificacaoEnum( tarefasEntity.getStatusNotificacaoEnum() );
+
+        return tarefasDto.build();
+    }
+
+    @Override
+    public List<TarefasEntity> paraListaTarefaEntity(List<TarefasDto> tarefasDtoList) {
+        if ( tarefasDtoList == null ) {
+            return null;
+        }
+
+        List<TarefasEntity> list = new ArrayList<TarefasEntity>( tarefasDtoList.size() );
+        for ( TarefasDto tarefasDto : tarefasDtoList ) {
+            list.add( paraTarefaEntity( tarefasDto ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<TarefasDto> paraListaTarefasDto(List<TarefasEntity> tarefasEntityList) {
+        if ( tarefasEntityList == null ) {
+            return null;
+        }
+
+        List<TarefasDto> list = new ArrayList<TarefasDto>( tarefasEntityList.size() );
+        for ( TarefasEntity tarefasEntity : tarefasEntityList ) {
+            list.add( paraTarefaDto( tarefasEntity ) );
+        }
+
+        return list;
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./bin/generated-sources/annotations/com/mvalentin/agendadortarefas/business/mapper/TarefasUpDateMapperImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-02-11T12:13:49-0300",
+    comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.45.0.v20260128-0750, environment: Java 21.0.9 (Eclipse Adoptium)"
+)
+@Component
+public class TarefasUpDateMapperImpl implements TarefasUpDateMapper {
+
+    @Override
+    public void updateTarefas(TarefasDto tarefasDto, TarefasEntity tarefasEntity) {
+        if ( tarefasDto == null ) {
+            return;
+        }
+
+        if ( tarefasDto.getDataAlteracao() != null ) {
+            tarefasEntity.setDataAlteracao( tarefasDto.getDataAlteracao() );
+        }
+        if ( tarefasDto.getDataCriacao() != null ) {
+            tarefasEntity.setDataCriacao( tarefasDto.getDataCriacao() );
+        }
+        if ( tarefasDto.getDataEvento() != null ) {
+            tarefasEntity.setDataEvento( tarefasDto.getDataEvento() );
+        }
+        if ( tarefasDto.getDescricao() != null ) {
+            tarefasEntity.setDescricao( tarefasDto.getDescricao() );
+        }
+        if ( tarefasDto.getEmailUsuario() != null ) {
+            tarefasEntity.setEmailUsuario( tarefasDto.getEmailUsuario() );
+        }
+        if ( tarefasDto.getId() != null ) {
+            tarefasEntity.setId( tarefasDto.getId() );
+        }
+        if ( tarefasDto.getNomeTarefa() != null ) {
+            tarefasEntity.setNomeTarefa( tarefasDto.getNomeTarefa() );
+        }
+        if ( tarefasDto.getStatusNotificacaoEnum() != null ) {
+            tarefasEntity.setStatusNotificacaoEnum( tarefasDto.getStatusNotificacaoEnum() );
+        }
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./bin/main/application.properties
+====================================================
+spring.application.name=agendador-tarefas
+
+## dados de conex�o BD (MongoDB)
+spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
+usuario.url=localhost:8080
+
+## porta da aplica��o agendador
+server.port=8081 
+
+
+====================================================
+ARQUIVO: ./build/generated/sources/annotationProcessor/java/main/com/mvalentin/agendadortarefas/business/mapper/TarefasMapperImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-02-10T14:19:03-0300",
+    comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.14.4.jar, environment: Java 17.0.12 (Azul Systems, Inc.)"
+)
+@Component
+public class TarefasMapperImpl implements TarefasMapper {
+
+    @Override
+    public TarefasEntity paraTarefaEntity(TarefasDto tarefasDto) {
+        if ( tarefasDto == null ) {
+            return null;
+        }
+
+        TarefasEntity.TarefasEntityBuilder tarefasEntity = TarefasEntity.builder();
+
+        tarefasEntity.id( tarefasDto.getId() );
+        tarefasEntity.dataEvento( tarefasDto.getDataEvento() );
+        tarefasEntity.dataCriacao( tarefasDto.getDataCriacao() );
+        tarefasEntity.nomeTarefa( tarefasDto.getNomeTarefa() );
+        tarefasEntity.descricao( tarefasDto.getDescricao() );
+        tarefasEntity.emailUsuario( tarefasDto.getEmailUsuario() );
+        tarefasEntity.dataAlteracao( tarefasDto.getDataAlteracao() );
+        tarefasEntity.statusNotificacaoEnum( tarefasDto.getStatusNotificacaoEnum() );
+
+        return tarefasEntity.build();
+    }
+
+    @Override
+    public TarefasDto paraTarefaDto(TarefasEntity tarefasEntity) {
+        if ( tarefasEntity == null ) {
+            return null;
+        }
+
+        TarefasDto.TarefasDtoBuilder tarefasDto = TarefasDto.builder();
+
+        tarefasDto.id( tarefasEntity.getId() );
+        tarefasDto.nomeTarefa( tarefasEntity.getNomeTarefa() );
+        tarefasDto.descricao( tarefasEntity.getDescricao() );
+        tarefasDto.dataCriacao( tarefasEntity.getDataCriacao() );
+        tarefasDto.dataEvento( tarefasEntity.getDataEvento() );
+        tarefasDto.emailUsuario( tarefasEntity.getEmailUsuario() );
+        tarefasDto.dataAlteracao( tarefasEntity.getDataAlteracao() );
+        tarefasDto.statusNotificacaoEnum( tarefasEntity.getStatusNotificacaoEnum() );
+
+        return tarefasDto.build();
+    }
+
+    @Override
+    public List<TarefasEntity> paraListaTarefaEntity(List<TarefasDto> tarefasDtoList) {
+        if ( tarefasDtoList == null ) {
+            return null;
+        }
+
+        List<TarefasEntity> list = new ArrayList<TarefasEntity>( tarefasDtoList.size() );
+        for ( TarefasDto tarefasDto : tarefasDtoList ) {
+            list.add( paraTarefaEntity( tarefasDto ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<TarefasDto> paraListaTarefasDto(List<TarefasEntity> tarefasEntityList) {
+        if ( tarefasEntityList == null ) {
+            return null;
+        }
+
+        List<TarefasDto> list = new ArrayList<TarefasDto>( tarefasEntityList.size() );
+        for ( TarefasEntity tarefasEntity : tarefasEntityList ) {
+            list.add( paraTarefaDto( tarefasEntity ) );
+        }
+
+        return list;
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./build/generated/sources/annotationProcessor/java/main/com/mvalentin/agendadortarefas/business/mapper/TarefasUpDateMapperImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2026-02-10T15:52:24-0300",
+    comments = "version: 1.5.3.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-8.14.4.jar, environment: Java 17.0.12 (Azul Systems, Inc.)"
+)
+@Component
+public class TarefasUpDateMapperImpl implements TarefasUpDateMapper {
+
+    @Override
+    public void updateTarefas(TarefasDto tarefasDto, TarefasEntity tarefasEntity) {
+        if ( tarefasDto == null ) {
+            return;
+        }
+
+        if ( tarefasDto.getId() != null ) {
+            tarefasEntity.setId( tarefasDto.getId() );
+        }
+        if ( tarefasDto.getNomeTarefa() != null ) {
+            tarefasEntity.setNomeTarefa( tarefasDto.getNomeTarefa() );
+        }
+        if ( tarefasDto.getDescricao() != null ) {
+            tarefasEntity.setDescricao( tarefasDto.getDescricao() );
+        }
+        if ( tarefasDto.getDataCriacao() != null ) {
+            tarefasEntity.setDataCriacao( tarefasDto.getDataCriacao() );
+        }
+        if ( tarefasDto.getDataEvento() != null ) {
+            tarefasEntity.setDataEvento( tarefasDto.getDataEvento() );
+        }
+        if ( tarefasDto.getEmailUsuario() != null ) {
+            tarefasEntity.setEmailUsuario( tarefasDto.getEmailUsuario() );
+        }
+        if ( tarefasDto.getDataAlteracao() != null ) {
+            tarefasEntity.setDataAlteracao( tarefasDto.getDataAlteracao() );
+        }
+        if ( tarefasDto.getStatusNotificacaoEnum() != null ) {
+            tarefasEntity.setStatusNotificacaoEnum( tarefasDto.getStatusNotificacaoEnum() );
+        }
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./build/resources/main/application.properties
+====================================================
+spring.application.name=agendador-tarefas
+
+## dados de conex�o BD (MongoDB)
+spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
+usuario.url=localhost:8080
+
+## porta da aplica��o agendador
+server.port=8081 
+
+
+====================================================
+ARQUIVO: ./build.gradle
+====================================================
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.mvalentin'
+version = '0.0.1-SNAPSHOT'
+description = 'Microserviço para gerenciamento de agenda e tarefas do usuário, integrada ao banco de dados db_agendador e preparada para consumo via BFF.'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "2025.0.1")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0' // para utilizar o lombok
+
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.3"
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/AgendadorTarefasApplication.java
+====================================================
+package com.mvalentin.agendadortarefas;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+@SpringBootApplication
+@EnableFeignClients // Habilitar o FeignClient
+public class AgendadorTarefasApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AgendadorTarefasApplication.class, args);
+	}
+
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/dto/TarefasDto.java
+====================================================
+package com.mvalentin.agendadortarefas.business.dto;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import lombok.*;
+
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class TarefasDto {
+
+    private String id;
+    private String nomeTarefa;
+    private String descricao;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime dataCriacao;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime dataEvento;
+    private String emailUsuario;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime dataAlteracao;
+    private StatusNotificacaoEnum statusNotificacaoEnum;
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/dto/UsuarioDto.java
+====================================================
+package com.mvalentin.agendadortarefas.business.dto;
+
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class UsuarioDto {
+
+    private String email;
+    private String senha;
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/mapper/TarefasMapper.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+public interface TarefasMapper {
+    // O MapStruct converte automaticamente ObjectId para String e vice-versa
+    @Mapping(source = "id", target = "id")
+    @Mapping(source = "dataEvento", target = "dataEvento")
+    @Mapping(source = "dataCriacao", target = "dataCriacao")
+
+    TarefasEntity paraTarefaEntity(TarefasDto tarefasDto);
+
+    TarefasDto paraTarefaDto(TarefasEntity tarefasEntity);
+
+    List<TarefasEntity> paraListaTarefaEntity(List<TarefasDto> tarefasDtoList);
+
+    List<TarefasDto> paraListaTarefasDto(List<TarefasEntity> tarefasEntityList);
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/mapper/TarefasUpDateMapper.java
+====================================================
+package com.mvalentin.agendadortarefas.business.mapper;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+
+@Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+public interface TarefasUpDateMapper {
+
+    void updateTarefas(TarefasDto tarefasDto, @MappingTarget TarefasEntity tarefasEntity);
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/business/service/TarefasService.java
+====================================================
+package com.mvalentin.agendadortarefas.business.service;
+
+import com.mvalentin.agendadortarefas.business.mapper.TarefasMapper;
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.business.mapper.TarefasUpDateMapper;
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import com.mvalentin.agendadortarefas.infrastructure.exceptions.ResourceNotFoundException;
+import com.mvalentin.agendadortarefas.infrastructure.repository.TarefasRepository;
+import com.mvalentin.agendadortarefas.infrastructure.security.JwtUtil;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class TarefasService {
+
+    private final  TarefasRepository tarefasRepository;
+    private final TarefasMapper tarefasMapper;
+    private final JwtUtil jwtUtil;
+    private final TarefasUpDateMapper tarefasUpDateMapper;
+
+    public TarefasDto salvarTarefa (String token,TarefasDto tarefasDto){
+        // 1. Extração do e-mail
+        String email = jwtUtil.extrairEmailToken(token.substring(7));
+
+        // 2. Preenchimento de campos automáticos (Regra de Negócio)
+        tarefasDto.setDataCriacao(LocalDateTime.now());
+        tarefasDto.setStatusNotificacaoEnum(StatusNotificacaoEnum.PENDENTE);
+        tarefasDto.setEmailUsuario(email); // precisamos setar o e-mail
+
+        // 3. Conversão DTO -> Entity
+        TarefasEntity tarefa = tarefasMapper.paraTarefaEntity(tarefasDto);
+
+        // 4. Persistência no MongoDB
+        tarefa = tarefasRepository.save(tarefa);
+
+        // 5. Retorno convertido para DTO
+        return tarefasMapper.paraTarefaDto(tarefa);
+    }
+
+    public List<TarefasDto> buscaTarefasAgendadorPorPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal){
+        return tarefasMapper.paraListaTarefasDto(
+                tarefasRepository.findByDataEventoBetween(dataInicial,dataFinal));
+    }
+
+    public List<TarefasDto> buscaTarefasByEmail (String token){
+        String email = jwtUtil.extrairEmailToken(token.substring(7));
+
+        return tarefasMapper.paraListaTarefasDto(
+                tarefasRepository.findByEmailUsuario(email)
+        );
+    }
+
+    public void deletaTarefaById(String id){
+        tarefasRepository.deleteById(id);
+    }
+
+    public TarefasDto alteracaoStatus(StatusNotificacaoEnum status,String id) {
+        try {
+            TarefasEntity tarefa = tarefasRepository.findById(id)
+                    .orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada" + id));
+            tarefa.setStatusNotificacaoEnum(status);
+            return tarefasMapper.paraTarefaDto(tarefasRepository.save(tarefa));
+
+        } catch (ResourceNotFoundException e) {
+            throw new ResourceNotFoundException("Erro ao alterar status da tarefa", e.getCause());
+        }
+
+    }
+    public TarefasDto updateTarefas(TarefasDto tarefasDto,String id){
+        try {
+            TarefasEntity tarefas = tarefasRepository.findById(id).
+                    orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada" +id));
+            tarefasUpDateMapper.updateTarefas(tarefasDto,tarefas);
+            return tarefasMapper.paraTarefaDto(tarefasRepository.save(tarefas));
+        }catch (ResourceNotFoundException e){
+            throw new ResourceNotFoundException("Erro ao alterar status da tarefa" + e.getCause());
+        }
+
+    }
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/controller/TarefasController.java
+====================================================
+package com.mvalentin.agendadortarefas.controller;
+
+import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
+import com.mvalentin.agendadortarefas.business.service.TarefasService;
+import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import com.mvalentin.agendadortarefas.infrastructure.exceptions.ResourceNotFoundException;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@RestController
+@RequestMapping("/tarefas")
+@RequiredArgsConstructor
+public class TarefasController {
+
+    private final TarefasService tarefasService;
+
+    @PostMapping
+    public ResponseEntity<TarefasDto> salvarTarefa(@RequestBody TarefasDto tarefasDto,
+                                                   @RequestHeader("Authorization") String token) {
+        // 1. Chama o serviço UMA ÚNICA VEZ e guarda o resultado (o DTO retornado)
+        TarefasDto tarefaSalva = tarefasService.salvarTarefa(token, tarefasDto);
+
+        // 2. Retorna a variável que já contém os dados salvos
+        return ResponseEntity.ok(tarefaSalva);
+    }
+    @GetMapping("/eventos")
+    public ResponseEntity<List<TarefasDto>> buscaTarefasPorPeriodo(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
+                                                                  @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal){
+        return ResponseEntity.ok(tarefasService.buscaTarefasAgendadorPorPeriodo(dataInicial,dataFinal));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TarefasDto>> buscaTarefasPorEmail(@RequestHeader ("Authorization") String token){
+        return ResponseEntity.ok(tarefasService.buscaTarefasByEmail(token));
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deletaTarefaPorId(@RequestParam("id") String id){
+        try {
+            tarefasService.deletaTarefaById(id);
+        }catch (ResourceNotFoundException e ){
+            throw new ResourceNotFoundException("Erro ao deletar tarefaa, id inexistnte" + id +
+                    e.getCause());
+        }
+
+        return ResponseEntity.ok().build();
+    }
+    @PatchMapping
+    public ResponseEntity<TarefasDto> alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
+                                                              @RequestParam ("id") String id,
+                                                              @RequestHeader ("Authorization") String token){
+        return ResponseEntity.ok(tarefasService.alteracaoStatus(status,id));
+    }
+   // ou posso fazer assim, porém em ambos a situiações é  necessário incluir no insomnia o token
+//    @PatchMapping
+//    public ResponseEntity<TarefasDto> alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
+//                                                              @RequestParam ("id") String id){
+//        return ResponseEntity.ok(tarefasService.alteracaoStatus(status,id));
+//    }
+
+    @PutMapping
+    public ResponseEntity<TarefasDto> updateTarefas(@RequestBody TarefasDto tarefasDto,
+                                                    @RequestParam("id") String id){
+        return ResponseEntity.ok(tarefasService.updateTarefas(tarefasDto,id));
+    }
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/client/UsuarioClient.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.client;
+
+import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@FeignClient(name = "usuario", url = "${usuario.url}")
+public interface UsuarioClient {
+    @GetMapping("/usuario")
+    UsuarioDto buscaUsuario(@RequestParam("email")String email,
+                            @RequestHeader("Authorization") String token);
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/entity/TarefasEntity.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.entity;
+
+import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Document("Tarefa") // como vamos utilizar o mongoDB então ao innvés de entity utilizamos o Document
+public class TarefasEntity {
+
+    @Id
+    private String id;
+    private String nomeTarefa;
+    private String descricao;
+    private LocalDateTime dataCriacao;
+    private LocalDateTime dataEvento;
+    private String emailUsuario;
+    private LocalDateTime dataAlteracao;
+    private StatusNotificacaoEnum statusNotificacaoEnum; // aqui vamos utilizar o enum para os status de (PENDENTE, NOTIFICADO, CANCELADO
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/enums/StatusNotificacaoEnum.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.enums;
+
+public enum StatusNotificacaoEnum {
+    PENDENTE,
+    NOTIFICADO,
+    CANCELADO
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/exceptions/GlobalExceptionHandler.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+
+import java.time.LocalDateTime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<String> handleInvalidEnum(HttpMessageNotReadableException ex) {
+        return ResponseEntity.badRequest().body("Status inválido. Escolha entre: PENDENTE, NOTIFICADO ou CANCELADO.");
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleNotFound(ResourceNotFoundException ex) {
+        // Trata o erro de "Tarefa não encontrada"
+        return ResponseEntity.status(404).body(ex.getMessage());
+    }
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Object> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.BAD_REQUEST.value());
+        body.put("error", "Parâmetro Inválido");
+        body.put("message", String.format("O valor '%s' não é válido para o campo '%s'. Escolha entre: PENDENTE, NOTIFICADO ou CANCELADO.",
+                ex.getValue(), ex.getName()));
+
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+}
+
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/exceptions/ResourceNotFoundException.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.exceptions;
+
+public class ResourceNotFoundException  extends RuntimeException{
+
+    public ResourceNotFoundException (String mensagem){
+        super(mensagem);
+    }
+
+    public ResourceNotFoundException (String message, Throwable throwable){
+        super(message);
+    }
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/repository/TarefasRepository.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.repository;
+
+import com.mvalentin.agendadortarefas.infrastructure.entity.TarefasEntity;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Repository
+public interface TarefasRepository extends MongoRepository<TarefasEntity,String> {
+
+    List<TarefasEntity> findByDataEventoBetween(LocalDateTime dataInicial, LocalDateTime dataFinal);
+
+    List<TarefasEntity> findByEmailUsuario(String email);
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/JwtRequestFilter.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.security;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import java.io.IOException;
+
+// Define a classe JwtRequestFilter, que estende OncePerRequestFilter
+public class JwtRequestFilter extends OncePerRequestFilter {
+
+    // Define propriedades para armazenar instâncias de JwtUtil e UserDetailsService
+    private final JwtUtil jwtUtil;
+    private final UserDetailsServiceImpl userDetailsService;
+
+    // Construtor que inicializa as propriedades com instâncias fornecidas
+    public JwtRequestFilter(JwtUtil jwtUtil, UserDetailsServiceImpl userDetailsService) {
+        this.jwtUtil = jwtUtil;
+        this.userDetailsService = userDetailsService;
+    }
+
+    // Método chamado uma vez por requisição para processar o filtro
+    @Override
+    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+            throws ServletException, IOException {
+
+        // Obtém o valor do header "Authorization" da requisição
+        final String authorizationHeader = request.getHeader("Authorization");
+
+        // Verifica se o cabeçalho existe e começa com "Bearer "
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            // Extrai o token JWT do cabeçalho
+            final String token = authorizationHeader.substring(7);
+            // Extrai o nome de usuário do token JWT
+            final String username = jwtUtil.extrairEmailToken(token);
+
+            // Se o nome de usuário não for nulo e o usuário não estiver autenticado ainda
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                // Carrega os detalhes do usuário a partir do nome de usuário
+                UserDetails userDetails = userDetailsService.carregaDadosUsuario(username,authorizationHeader);
+                // Valida o token JWT
+                if (jwtUtil.validateToken(token, username)) {
+                    // Cria um objeto de autenticação com as informações do usuário
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                            userDetails, null, userDetails.getAuthorities());
+                    // Define a autenticação no contexto de segurança
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
+            }
+        }
+
+        // Continua a cadeia de filtros, permitindo que a requisição prossiga
+        chain.doFilter(request, response);
+    }
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/JwtUtil.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.security;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.security.Keys;
+import org.springframework.stereotype.Service;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+
+@Service
+public class JwtUtil {
+
+    // Chave secreta usada para assinar e verificar tokens JWT
+    private final String secretKey = "sua-chave-secreta-super-segura-que-deve-ser-bem-longa";
+
+
+    // Extrai as claims do token JWT (informações adicionais do token)
+    public Claims extractClaims(String token) {
+        return Jwts.parser()
+                .setSigningKey(Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8))) // Define a chave secreta para validar a assinatura do token
+                .build()
+                .parseClaimsJws(token) // Analisa o token JWT e obtém as claims
+                .getBody(); // Retorna o corpo das claims
+    }
+
+    // Extrai o email do usuário do token JWT
+    public String extrairEmailToken(String token) {
+        // Obtém o assunto (nome de usuário) das claims do token
+        return extractClaims(token).getSubject();
+    }
+
+    // Verifica se o token JWT está expirado
+    public boolean isTokenExpired(String token) {
+        // Compara a data de expiração do token com a data atual
+        return extractClaims(token).getExpiration().before(new Date());
+    }
+
+    // Valida o token JWT verificando o nome de usuário e se o token não está expirado
+    public boolean validateToken(String token, String username) {
+        // Extrai o nome de usuário do token
+        final String extractedUsername = extrairEmailToken(token);
+        // Verifica se o nome de usuário do token corresponde ao fornecido e se o token não está expirado
+        return (extractedUsername.equals(username) && !isTokenExpired(token));
+    }
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/SecurityConfig.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    public static final String SECURITY_SCHEME = "bearerAuth";
+
+    // Instâncias de JwtUtil e UserDetailsService injetadas pelo Spring
+    private final JwtUtil jwtUtil;
+    private final UserDetailsServiceImpl userDetailsService;
+
+    // Construtor para injeção de dependências de JwtUtil e UserDetailsService
+    @Autowired
+    public SecurityConfig(JwtUtil jwtUtil, UserDetailsServiceImpl userDetailsService) {
+        this.jwtUtil = jwtUtil;
+        this.userDetailsService = userDetailsService;
+    }
+
+    // Configuração do filtro de segurança
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        JwtRequestFilter jwtRequestFilter = new JwtRequestFilter(jwtUtil, userDetailsService);
+
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(authorize -> authorize
+                        .anyRequest().authenticated()// todos os endpoints precisam ser ahthenticados
+                )
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
+                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
+
+}
+
+
+====================================================
+ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/UserDetailsServiceImpl.java
+====================================================
+package com.mvalentin.agendadortarefas.infrastructure.security;
+
+import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
+import com.mvalentin.agendadortarefas.infrastructure.client.UsuarioClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserDetailsServiceImpl  {
+
+    @Autowired
+    private UsuarioClient usuarioClient;
+
+    public UserDetails carregaDadosUsuario(String email, String token){
+        UsuarioDto usuarioDto = usuarioClient.buscaUsuario(email,token);
+        return User
+                .withUsername(usuarioDto.getEmail()) // Define o nome de usuário como o e-mail
+                .password(usuarioDto.getSenha()) // Define a senha do usuário
+                .build(); // Constrói o objeto UserDetails
+    }
+}
+
+
+====================================================
+ARQUIVO: ./src/main/resources/application.properties
+====================================================
+spring.application.name=agendador-tarefas
+
+## dados de conex�o BD (MongoDB)
+spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
+usuario.url=localhost:8080
+
+## porta da aplica��o agendador
+server.port=8081 
+
+
+====================================================
+ARQUIVO: ./src/test/java/com/mvalentin/agendadortarefas/AgendadorTarefasApplicationTests.java
+====================================================
+package com.mvalentin.agendadortarefas;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AgendadorTarefasApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
+
+
+
