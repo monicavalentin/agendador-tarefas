@@ -2,7 +2,6 @@ package com.mvalentin.agendadortarefas.business.dto;
 
 import lombok.*;
 
-
 @Getter
 @Setter
 @AllArgsConstructor
