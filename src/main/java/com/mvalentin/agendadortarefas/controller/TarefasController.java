@@ -51,16 +51,20 @@ public class TarefasController {
 
         return ResponseEntity.ok().build();
     }
+
+    // porém o swagger openapi nao aceita headers Authorization por isso vamos utilizar esta opção para o Patch:
     @PatchMapping
     public ResponseEntity<TarefasDto> alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
-                                                              @RequestParam ("id") String id,
-                                                              @RequestHeader ("Authorization") String token){
+                                                              @RequestParam ("id") String id){
         return ResponseEntity.ok(tarefasService.alteracaoStatus(status,id));
     }
-   // ou posso fazer assim, porém em ambos a situiações é  necessário incluir no insomnia o token
+
+    // ou posso fazer assim, porém em ambos a situiações é  necessário incluir no insomnia o token
+    // porém o swagger openapi não  aceita headers Authorization por isso utiliei o Patch conforme exemplo acima
 //    @PatchMapping
 //    public ResponseEntity<TarefasDto> alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
-//                                                              @RequestParam ("id") String id){
+//                                                              @RequestParam ("id") String id,
+//                                                              @RequestHeader ("Authorization") String token){
 //        return ResponseEntity.ok(tarefasService.alteracaoStatus(status,id));
 //    }
 
