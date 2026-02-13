@@ -147,11 +147,11 @@ ARQUIVO: ./bin/main/application.properties
 ====================================================
 spring.application.name=agendador-tarefas
 
-## dados de conexão BD (MongoDB)
+## dados de conexï¿½o BD (MongoDB)
 spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
 usuario.url=localhost:8080
 
-## porta da aplicação agendador
+## porta da aplicaï¿½ï¿½o agendador
 server.port=8081 
 
 
@@ -304,11 +304,11 @@ ARQUIVO: ./build/resources/main/application.properties
 ====================================================
 spring.application.name=agendador-tarefas
 
-## dados de conexão BD (MongoDB)
+## dados de conexï¿½o BD (MongoDB)
 spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
 usuario.url=localhost:8080
 
-## porta da aplicação agendador
+## porta da aplicaï¿½ï¿½o agendador
 server.port=8081 
 
 
@@ -670,7 +670,7 @@ public class TarefasController {
 ====================================================
 ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/client/UsuarioClient.java
 ====================================================
-package com.mvalentin.agendadortarefas.infrastructure.client;
+package com.mvalentin.agendadortarefas.infrastructure.security.client;
 
 import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -991,7 +991,7 @@ ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/
 package com.mvalentin.agendadortarefas.infrastructure.security;
 
 import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
-import com.mvalentin.agendadortarefas.infrastructure.client.UsuarioClient;
+import com.mvalentin.agendadortarefas.infrastructure.security.client.UsuarioClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -1018,11 +1018,11 @@ ARQUIVO: ./src/main/resources/application.properties
 ====================================================
 spring.application.name=agendador-tarefas
 
-## dados de conexão BD (MongoDB)
+## dados de conexï¿½o BD (MongoDB)
 spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
 usuario.url=localhost:8080
 
-## porta da aplicação agendador
+## porta da aplicaï¿½ï¿½o agendador
 server.port=8081 
 
 
@@ -1194,11 +1194,11 @@ ARQUIVO: ./bin/main/application.properties
 ====================================================
 spring.application.name=agendador-tarefas
 
-## dados de conexão BD (MongoDB)
+## dados de conexï¿½o BD (MongoDB)
 spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
 usuario.url=localhost:8080
 
-## porta da aplicação agendador
+## porta da aplicaï¿½ï¿½o agendador
 server.port=8081 
 
 
@@ -1351,11 +1351,11 @@ ARQUIVO: ./build/resources/main/application.properties
 ====================================================
 spring.application.name=agendador-tarefas
 
-## dados de conexão BD (MongoDB)
+## dados de conexï¿½o BD (MongoDB)
 spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
 usuario.url=localhost:8080
 
-## porta da aplicação agendador
+## porta da aplicaï¿½ï¿½o agendador
 server.port=8081 
 
 
@@ -1717,7 +1717,7 @@ public class TarefasController {
 ====================================================
 ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/client/UsuarioClient.java
 ====================================================
-package com.mvalentin.agendadortarefas.infrastructure.client;
+package com.mvalentin.agendadortarefas.infrastructure.security.client;
 
 import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -2038,7 +2038,7 @@ ARQUIVO: ./src/main/java/com/mvalentin/agendadortarefas/infrastructure/security/
 package com.mvalentin.agendadortarefas.infrastructure.security;
 
 import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
-import com.mvalentin.agendadortarefas.infrastructure.client.UsuarioClient;
+import com.mvalentin.agendadortarefas.infrastructure.security.client.UsuarioClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -2065,11 +2065,11 @@ ARQUIVO: ./src/main/resources/application.properties
 ====================================================
 spring.application.name=agendador-tarefas
 
-## dados de conexão BD (MongoDB)
+## dados de conexï¿½o BD (MongoDB)
 spring.data.mongodb.uri=mongodb://localhost:27017/db_agendador
 usuario.url=localhost:8080
 
-## porta da aplicação agendador
+## porta da aplicaï¿½ï¿½o agendador
 server.port=8081 
 
 
