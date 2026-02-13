@@ -1,7 +1,7 @@
 package com.mvalentin.agendadortarefas.infrastructure.security;
 
 import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
-import com.mvalentin.agendadortarefas.infrastructure.client.UsuarioClient;
+import com.mvalentin.agendadortarefas.infrastructure.security.client.UsuarioClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
