@@ -1,4 +1,4 @@
-package com.mvalentin.agendadortarefas.infrastructure.client;
+package com.mvalentin.agendadortarefas.infrastructure.security.client;
 
 import com.mvalentin.agendadortarefas.business.dto.UsuarioDto;
 import org.springframework.cloud.openfeign.FeignClient;
