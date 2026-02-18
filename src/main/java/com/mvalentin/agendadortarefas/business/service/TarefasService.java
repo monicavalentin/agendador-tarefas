@@ -44,7 +44,8 @@ public class TarefasService {
 
     public List<TarefasDto> buscaTarefasAgendadorPorPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal){
         return tarefasMapper.paraListaTarefasDto(
-                tarefasRepository.findByDataEventoBetween(dataInicial,dataFinal));
+                tarefasRepository.findByDataEventoBetweenAndStatusNotificationEnum(dataInicial,dataFinal,
+                        StatusNotificacaoEnum.PENDENTE));
     }
 
     public List<TarefasDto> buscaTarefasByEmail (String token){
@@ -59,7 +60,7 @@ public class TarefasService {
         tarefasRepository.deleteById(id);
     }
 
-    public TarefasDto alteracaoStatus(StatusNotificacaoEnum status,String id) {
+    public TarefasDto alteraStatus(StatusNotificacaoEnum status, String id) {
         try {
             TarefasEntity tarefa = tarefasRepository.findById(id)
                     .orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada" + id));

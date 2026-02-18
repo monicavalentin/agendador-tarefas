@@ -56,7 +56,7 @@ public class TarefasController {
     @PatchMapping
     public ResponseEntity<TarefasDto> alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
                                                               @RequestParam ("id") String id){
-        return ResponseEntity.ok(tarefasService.alteracaoStatus(status,id));
+        return ResponseEntity.ok(tarefasService.alteraStatus(status,id));
     }
 
     // ou posso fazer assim, porém em ambos a situiações é  necessário incluir no insomnia o token
