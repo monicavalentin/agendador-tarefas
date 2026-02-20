@@ -14,11 +14,6 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<String> handleInvalidEnum(HttpMessageNotReadableException ex) {
-        return ResponseEntity.badRequest().body("Status inválido. Escolha entre: PENDENTE, NOTIFICADO ou CANCELADO.");
-    }
-
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<String> handleNotFound(ResourceNotFoundException ex) {
         // Trata o erro de "Tarefa não encontrada"

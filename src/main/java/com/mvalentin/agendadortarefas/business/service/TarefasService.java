@@ -44,7 +44,7 @@ public class TarefasService {
 
     public List<TarefasDto> buscaTarefasAgendadorPorPeriodo(LocalDateTime dataInicial, LocalDateTime dataFinal){
         return tarefasMapper.paraListaTarefasDto(
-                tarefasRepository.findByDataEventoBetweenAndStatusNotificationEnum(dataInicial,dataFinal,
+                tarefasRepository.findByDataEventoBetweenAndStatusNotificacaoEnum(dataInicial,dataFinal,
                         StatusNotificacaoEnum.PENDENTE));
     }
 
