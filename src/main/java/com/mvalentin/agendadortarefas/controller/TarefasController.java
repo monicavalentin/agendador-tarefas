@@ -4,6 +4,11 @@ import com.mvalentin.agendadortarefas.business.dto.TarefasDto;
 import com.mvalentin.agendadortarefas.business.service.TarefasService;
 import com.mvalentin.agendadortarefas.infrastructure.enums.StatusNotificacaoEnum;
 import com.mvalentin.agendadortarefas.infrastructure.exceptions.ResourceNotFoundException;
+import com.mvalentin.agendadortarefas.infrastructure.security.SecurityConfig;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,11 +21,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/tarefas")
 @RequiredArgsConstructor
+@Tag(name = "Tarefas", description = "Cadastra tarefas de usuários")
+@SecurityRequirement(name = SecurityConfig.SECURITY_SCHEME)
 public class TarefasController {
 
     private final TarefasService tarefasService;
-
+     // TODO : incluir anotações do Swagger para os demais endpoints
     @PostMapping
+    @Operation(summary = "Salva tarefas" , description = "Criar uma nova tarefa")
+    @ApiResponse(responseCode = "200", description = "Tarefa salva com sucesso")
+    @ApiResponse(responseCode = "500", description = "Erro de servidor")
     public ResponseEntity<TarefasDto> salvarTarefa(@RequestBody TarefasDto tarefasDto,
                                                    @RequestHeader("Authorization") String token) {
         // 1. Chama o serviço UMA ÚNICA VEZ e guarda o resultado (o DTO retornado)
